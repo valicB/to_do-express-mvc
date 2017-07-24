@@ -1,0 +1,3 @@
+npm install -g yo
+npm install -g generator-express (github.com/petecoop/generator-express)
+run the command yo

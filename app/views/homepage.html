@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+<!-- Start -->
+    <div class="container">
+      <div class="jumbotron">
+        <h1>
+          Hello,
+          {% if onLine %}
+            {{fullname}}!
+          {% else %}
+            User
+          {% endif %}
+        </h1>
+        <p>If you want to use our APP</p>
+        <h4>For testing error</h4>
+        <p>
+          <a class="btn btn-default" href="/register" role="button">Create account</a>
+          or
+          <a class="btn btn-default" href="/login" role="button">Log in</a>
+          or
+          <a class="btn btn-default" href="/create" role="link">Create new task</a>
+        </p>
+
+      </div>
+    </div>
+<!-- End -->
+{% endblock %}
