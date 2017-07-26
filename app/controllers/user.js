@@ -8,7 +8,7 @@ module.exports = function (app) {
 
 
 router.get('/login', (req, res)=>{
-  res.render('login-page', {onLine: req.session.is_online, fullname: req.session.fullname});
+  res.render('login-page', {title: 'Authentication', onLine: req.session.is_online, fullname: req.session.fullname});
 });
 
 router.post('/user/login', (req, res)=>{
@@ -30,14 +30,16 @@ router.post('/user/login', (req, res)=>{
           req.session.is_online = true;
           req.session.fullname = fullname;
           res.redirect('/');
-        } else res.render('login-page', {error : 'Bad fullname or password'});
+        } else res.render('login-page', {title: 'Authentication', error : 'Bad fullname or password'});
       }
   });
 });
+router.get('/user/logout', (req, res)=>{
+  // res.session = null;
+  req.session.is_online = null
+  res.redirect('/');
+});
 
 router.get('/register', (req, res)=>{
-  res.render('register-page', {onLine: req.session.is_online, fullname: req.session.fullname});
-});
-router.get('/create', (req, res)=>{
-  res.render('create-task', {onLine: req.session.is_online, fullname: req.session.fullname});
+  res.render('register-page', {title: 'Registration', onLine: req.session.is_online, fullname: req.session.fullname});
 });
