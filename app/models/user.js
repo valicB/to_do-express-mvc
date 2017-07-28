@@ -1,11 +1,11 @@
 // class User
-
+const bcrypt = require('bcrypt');
 
 function User (opts) {
   if(!opts) opts = {};
   this.fullname = opts.fullname || '';
-  this.email    = opts.email    || '';
-  this.password = opts.password || '';
+  this.password    = bcrypt.hashSync(opts.password    || '', 5);
+  this.email = opts.email || '';
 }
 
 module.exports = User;
