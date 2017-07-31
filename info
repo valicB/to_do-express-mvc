@@ -30,3 +30,23 @@ mongod --port 27017 --dbpath "C:\MongoDB\data\db" // windows command to start mo
   npm install mongodb --save
   npm install bcrypt-nodejs --save
   npm install bcrypt --save
+
+
+else {
+        // CONNECT TO DATABASE
+        MongoClient.connect(url, function(err, db) {
+          assert.equal(null, err);
+          console.log("Connected correctly to server");
+
+
+          // CHOOSE COLLECTION
+          var collection = db.collection('users');
+          collection.findOne({fullname: fullname}, function(err, result) {
+            console.log(result.fullname)
+            // send HTML file populated with quotes here
+          });
+
+        });
+        if (
+          fullname == result.fullname
+      ){
