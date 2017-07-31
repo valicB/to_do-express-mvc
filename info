@@ -10,6 +10,7 @@ database (my_store, todo_mvc...)
       -> properties
 
 show databases
+mongod --port 27017 --dbpath "C:\MongoDB\data\db" // windows command to start mongodb
 1) use <database_name>
     use todo
 2) db (--> todo)
